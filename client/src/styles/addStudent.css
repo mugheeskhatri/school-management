@@ -1,0 +1,155 @@
+.form-container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+}
+
+.width{
+    width: 48% !important;
+}
+
+
+
+.form-id-card{
+    width: 100%;
+    height: 230px;
+    border: 1px solid black;
+    background-color: whitesmoke;
+    margin: 0 !important;
+    position: relative;
+}
+
+.form-id-card-header{
+    background-color: #7E3AF2;
+    width: 100%;
+    height: 70px;
+    color: black;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 10px;
+    padding-right: 10px;
+
+}
+.form-id-card-header p{
+    font-size: 20px;
+    font-weight: 500;
+}
+
+.form-profile-container{
+    width: 115px;
+    height: 115px;
+    position: absolute;
+    border-radius: 50%;
+    background-color: whitesmoke;
+    padding: 3px;
+    top: 30px;
+    left: 15px;
+}
+
+.form-profile-container img{
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.form-id-card-name-section{
+    width: 100%;
+    padding-left: 133px;
+    padding-top: 7px;
+    height: 70px;
+}
+
+
+.form-studentName{
+    font-size: 18px;
+    font-weight: 500;
+    color: black;
+}
+
+.form-fatherName{
+    color: rgb(81, 80, 80);
+    font-size: 14px;
+    line-height: 19px;
+}
+
+.form-id-card-details{
+    display: flex;
+    justify-content: space-around;
+    margin-top: 10px;
+    height: 70px;
+}
+
+
+.form-second-div{
+    margin-top: 8px;
+}
+
+.form-heading{
+    color: #7E3AF2;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 14px;
+}
+
+.form-value{
+    color:rgb(81, 80, 80) ;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 16px;
+}
+
+.form-gr-section{
+    width: 25%;
+    border-right: 1px solid #7E3AF2;
+    padding-left: 10px;
+}
+
+.form-gender-section{
+    width: 17%;
+    border-right: 1px solid #7E3AF2;
+    padding-left: 10px;
+}
+
+.form-extra-section{
+    width: 40%;
+    border-right: 1px solid #7E3AF2;
+    padding-left: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    line-height: 19px;
+}
+
+.form-extra-section p{
+    font-size: 11px;
+    color: rgb(81, 80, 80);
+    font-weight: 500;
+    line-height: 14px;
+    width: 100% !important;
+}
+
+.form-website-link{
+    font-size: 11px !important;
+    color: #7E3AF2 !important;
+    font-weight: 500;
+}
+
+.form-signature-section{
+    width: 18%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.form-signature-section p{
+    font-size: 12px;
+    color: #7E3AF2;
+    font-weight: 500;
+}
+
+.form-modal-footer{
+    width: 100%;
+    height: 100px;
+}

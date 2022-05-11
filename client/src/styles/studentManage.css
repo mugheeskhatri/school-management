@@ -1,0 +1,171 @@
+.filter-button-div {
+    height: 45;
+    width: 35%;
+    display: flex;
+    justify-content: space-around;
+    margin: 5;
+    padding-right: 10;
+    padding-bottom: 10;
+    align-items: center;
+}
+
+.filter-div {
+    display: flex;
+    width: 30%;
+    padding: 10px;
+    justify-content: space-around;
+}
+
+.icon-container {
+    color: #888888;
+}
+
+.icon-container:hover {
+    color: black;
+    cursor: pointer;
+}
+
+.student-data-main header {
+    display: none !important;
+}
+
+.modal-id-card {
+    width: 100%;
+    height: 300px;
+    background-color: whitesmoke;
+    margin: 0 !important;
+    position: relative;
+}
+
+.id-card-header {
+    background-color: #7E3AF2;
+    width: 100%;
+    height: 90px;
+    color: black;
+    display: flex;
+    justify-content: end;
+    align-items: center;
+    padding: 10px;
+    padding-right: 20px;
+
+}
+
+.id-card-header p {
+    font-size: 24px;
+    font-weight: 500;
+}
+
+.profile-container {
+    width: 140px;
+    height: 140px;
+    position: absolute;
+    top: 30px;
+    left: 20px;
+}
+
+.profile-container img {
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+}
+
+.id-card-name-section {
+    width: 100%;
+    padding-left: 175px;
+    padding-top: 10px;
+    height: 70px;
+}
+
+
+.studentName {
+    font-size: 22px;
+    font-weight: 500;
+    color: black;
+}
+
+.fatherName {
+    color: rgb(81, 80, 80);
+    font-size: 15px;
+    line-height: 19px;
+}
+
+.id-card-details {
+    display: flex;
+    justify-content: space-around;
+    margin-top: 39px;
+    height: 90px;
+}
+
+
+.second-div {
+    margin-top: 9px;
+}
+
+.heading {
+    color: #7E3AF2;
+    font-size: 14px;
+    font-weight: 500;
+    line-height: 22px;
+}
+
+.value {
+    color: rgb(81, 80, 80);
+    font-weight: 500;
+    font-size: 14px;
+    line-height: 16px;
+}
+
+.gr-section {
+    width: 25%;
+    border-right: 1px solid #7E3AF2;
+    padding-left: 10px;
+}
+
+.gender-section {
+    width: 17%;
+    border-right: 1px solid #7E3AF2;
+    padding-left: 10px;
+}
+
+.extra-section {
+    width: 38%;
+    border-right: 1px solid #7E3AF2;
+    padding-left: 5px;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: flex-end;
+    line-height: 19px;
+}
+
+.extra-section p {
+    font-size: 13px;
+    color: rgb(81, 80, 80);
+    font-weight: 500;
+    width: 100% !important;
+}
+
+.website-link {
+    font-size: 12px !important;
+    color: #7E3AF2 !important;
+    font-weight: 500;
+}
+
+.signature-section {
+    width: 20%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.signature-section p {
+    font-size: 14px;
+    color: #7E3AF2;
+    font-weight: 500;
+}
+
+.modal-footer {
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
