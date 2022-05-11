@@ -11,38 +11,91 @@ const routes = [
     icon: 'HomeIcon', // the component being exported from icons/index.js
     name: 'Dashboard', // name that appear in Sidebar
   },
-  // {
-  //   path: '/app/forms',
-  //   icon: 'FormsIcon',
-  //   name: 'Orders',
-  // },
-  // {
-  //   path: '/app/cards',
-  //   icon: 'CardsIcon',
-  //   name: 'Customers',
-  // },
   {
     icon: 'PagesIcon',
-    name: 'Student',
+    name: 'Inquiry',
     routes: [
       {
-        path: '/app/student/add-new',
-        name: 'Add New',
-        routes:[{name:'Registeres',path:'/app/student/add-new/registered'}]
+        path: '/app/add-inquiry',
+        name: 'Add Inquiry',
       },
       {
-        path: '/app/student/manage',
-        name: 'Manage',
-      },
-      {
-        path: '/app/student/registered',
-        name: 'Registered',
+        path: '/app/inquiry-report',
+        name: 'Reports',
       },
     ],
   },
   {
     icon: 'PagesIcon',
-    name: 'Staff',
+    name: 'Admissions',
+    routes: [
+      {
+        path: '/app/student/add-new',
+        name: 'New Admission',
+      },
+      {
+        path: '/app/student/manage',
+        name: 'Manage Admissions',
+      },
+    ],
+  },
+  {
+    icon: 'PagesIcon',
+    name: 'Fee Management',
+    routes: [
+      {
+        path: '/app/fee-deposit-voucher',
+        name: 'Fee Deposit',
+      },
+      {
+        path: '/app/deposit-by-family',
+        name: 'Fee Deposit by family',
+      },
+      {
+        path: '/app/fee-report',
+        name: 'Reports',
+      },
+    ],
+  },
+  {
+    icon: 'PagesIcon',
+    name: 'Attendance',
+    routes: [
+      {
+        path: '/app/take-attendance',
+        name: 'Take Attendance',
+      },
+      {
+        path: '/app/student-leave',
+        name: 'Short Leave',
+      },
+      {
+        path: '/app/attendance-report',
+        name: 'Reports',
+      },
+    ],
+  },
+  {
+    icon: 'PagesIcon',
+    name: 'Expenses',
+    routes: [
+      {
+        path: '/app/add-expense',
+        name: 'Add Expense',
+      },
+      {
+        path: '/app/add-expense-type',
+        name: 'Add Expense Type',
+      },
+      {
+        path: '/app/expenses-report',
+        name: 'Report',
+      },
+    ],
+  },
+  {
+    icon: 'PagesIcon',
+    name: 'HR Management',
     routes: [
       {
         path: '/app/staff/add-new',
@@ -56,7 +109,75 @@ const routes = [
   },
   {
     icon: 'PagesIcon',
+    name: 'Complains',
+    routes: [
+      {
+        path: '/app/parents-complain',
+        name: 'Parents Complain',
+      },
+      {
+        path: '/app/staff-complain',
+        name: 'Staff Complain',
+      },
+      {
+        path: '/app/add-complain',
+        name: 'Add Complain',
+      },
+      {
+        path: '/app/complain-reports',
+        name: 'Reports',
+      },
+    ],
+  },
+  {
+    icon: 'PagesIcon',
     name: 'Finance',
+    routes: [
+      {
+        path: '/app/staff/add-new',
+        name: 'Add New',
+      },
+      {
+        path: '/app/staff/manage',
+        name: 'Manage',
+      },
+    ],
+  },
+  {
+    icon: 'PagesIcon',
+    name: 'Academic',
+    routes: [
+      {
+        path: '/app/syllabus',
+        name: 'Syllabus',
+      },
+      {
+        path: '/app/exams',
+        name: 'Examination',
+      },
+      {
+        path: '/app/syllabus-reports',
+        name: 'Reports',
+      },
+    ],
+  },
+  {
+    icon: 'PagesIcon',
+    name: 'User Management',
+    routes: [
+      {
+        path: '/app/add-user',
+        name: 'Add User',
+      },
+      {
+        path: '/app/manage-users',
+        name: 'Users',
+      },
+    ],
+  },
+  {
+    icon: 'PagesIcon',
+    name: 'Settings',
     routes: [
       {
         path: '/app/fee/collection',

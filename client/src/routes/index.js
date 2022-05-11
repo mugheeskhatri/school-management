@@ -2,20 +2,35 @@ import { lazy } from 'react'
 // use lazy for better code splitting, a.k.a. load faster
 const Dashboard = lazy(() => import('../pages/Dashboard'))
 const Forms = lazy(() => import('../pages/Forms'))
-const Cards = lazy(() => import('../pages/Cards'))
-const Charts = lazy(() => import('../pages/Charts'))
-const Buttons = lazy(() => import('../pages/Buttons'))
-const Modals = lazy(() => import('../pages/Modals'))
-const Tables = lazy(() => import('../pages/Tables'))
 const Page404 = lazy(() => import('../pages/404'))
 const NewStudent = lazy(() => import('../pages/newStudent'))
 const StudentManage = lazy(() => import('../pages/StudentManage'))
 const EditStudent = lazy(() => import('../pages/editStudent'))
 const newStaff = lazy(() => import('../pages/newStaff'))
 const RegisteredStudents = lazy(() => import('../pages/RegisteredStudents'))
-const Blank = lazy(() => import('../pages/Blank'))
-const newProduct = lazy(() => import('../pages/NewProduct'))
 const category = lazy(() => import('../pages/Category'))
+const AddInquiry = lazy(() => import('../pages/Inquiry/addInquiry'))
+const InquiryReports = lazy(() => import('../pages/Inquiry/reports'))
+const FeeDeposit = lazy(() => import('../pages/fee Management/feeDeposit'))
+const FeeDepositByfamily = lazy(() => import('../pages/fee Management/feeDepositByFamily'))
+const FeeReports = lazy(() => import('../pages/fee Management/reports'))
+const TakeAttendance = lazy(() => import('../pages/attendance/takeAttendance'))
+const StudentLeave = lazy(() => import('../pages/attendance/shortLeave'))
+const AttendanceReports = lazy(() => import('../pages/attendance/reports'))
+const AddExpense = lazy(() => import('../pages/expenses/addExpense'))
+const AddExpenseType = lazy(() => import('../pages/expenses/addExpenseType'))
+const ExpenseReport = lazy(() => import('../pages/expenses/reports'))
+const AddComplain = lazy(() => import('../pages/complains/addComplain'))
+const ParentsComplain = lazy(() => import('../pages/complains/parentsComplain'))
+const StaffComplain = lazy(() => import('../pages/complains/staffComplain'))
+const ComplainReports = lazy(() => import('../pages/complains/reports'))
+const Syllabus = lazy(() => import('../pages/academic/syllabus'))
+const Exams = lazy(() => import('../pages/academic/exams'))
+const SyllabusReport = lazy(() => import('../pages/academic/reports'))
+const AddUser = lazy(() => import('../pages/users/addUser'))
+const ManageUser = lazy(() => import('../pages/users/users'))
+
+
 
 /**
  * ⚠ These are internal routes!
@@ -37,40 +52,88 @@ const routes = [
     component: Forms,
   },
   {
-    path: '/cards',
-    component: Cards,
-  },
-  {
-    path: '/charts',
-    component: Charts,
-  },
-  {
-    path: '/buttons',
-    component: Buttons,
-  },
-  {
-    path: '/modals',
-    component: Modals,
-  },
-  {
-    path: '/tables',
-    component: Tables,
-  },
-  {
     path: '/404',
     component: Page404,
   },
   {
-    path: '/blank',
-    component: Blank,
+    path: '/add-inquiry',
+    component: AddInquiry,
   },
   {
-    path: '/staff/add-new',
-    component: newStaff,
+    path: '/inquiry-report',
+    component: InquiryReports,
   },
   {
-    path: '/student/add-new',
-    component: NewStudent,
+    path: '/fee-deposit-voucher',
+    component: FeeDeposit,
+  },
+  {
+    path: '/deposit-by-family',
+    component: FeeDepositByfamily,
+  },
+  {
+    path: '/fee-report',
+    component: FeeReports,
+  },
+  {
+    path: '/take-attendance',
+    component: TakeAttendance,
+  },
+  {
+    path: '/student-leave',
+    component: StudentLeave,
+  },
+  {
+    path: '/attendance-report',
+    component: AttendanceReports,
+  },
+  {
+    path: '/add-expense',
+    component: AddExpense,
+  },
+  {
+    path: '/add-expense-type',
+    component: AddExpenseType,
+  },
+  {
+    path: '/expenses-report',
+    component: ExpenseReport,
+  },
+  {
+    path: '/parents-complain',
+    component: ParentsComplain,
+  },
+  {
+    path: '/staff-complain',
+    component: StaffComplain,
+  },
+  {
+    path: '/add-complain',
+    component: AddComplain,
+  },
+  {
+    path: '/complain-reports',
+    component: ComplainReports,
+  },
+  {
+    path: '/syllabus',
+    component: Syllabus,
+  },
+  {
+    path: '/syllabus-reports',
+    component: SyllabusReport,
+  },
+  {
+    path: '/exams',
+    component: Exams,
+  },
+  {
+    path: '/add-user',
+    component: AddUser,
+  },
+  {
+    path: '/manage-users',
+    component: ManageUser,
   },
   {
     path: '/student/edit/:id',
