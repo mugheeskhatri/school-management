@@ -29,7 +29,7 @@ const Exams = lazy(() => import('../pages/academic/exams'))
 const SyllabusReport = lazy(() => import('../pages/academic/reports'))
 const AddUser = lazy(() => import('../pages/users/addUser'))
 const ManageUser = lazy(() => import('../pages/users/users'))
-
+const NewAddmission = lazy(() => import('../pages/newAddmission'))
 
 
 /**
@@ -166,6 +166,10 @@ const routes = [
   {
     path: '/profit-loss',
     component: category,
+  },
+  {
+    path: '/student/add-new',
+    component: NewAddmission,
   },
 ]
 

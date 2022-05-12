@@ -8,9 +8,11 @@ const Login = lazy(() => import('./pages/Login'))
 const CreateAccount = lazy(() => import('./pages/CreateAccount'))
 const ForgotPassword = lazy(() => import('./pages/ForgotPassword'))
 
+
 function App() {
   return (
     <Provider store={store}>
+      
       <Router>
         <AccessibleNavigationAnnouncer />
         <Switch>
@@ -21,7 +23,7 @@ function App() {
           {/* Place new routes over this */}
           <Route path="/app" component={Layout} />
           {/* If you have an index page, you can remothis Redirect */}
-          <Redirect exact from="/" to="/login" />
+          <Redirect exact from="/" to="/app" />
         </Switch>
       </Router>
     </Provider>
