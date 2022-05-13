@@ -1,10 +1,10 @@
 import React, { useState, useEffect } from 'react'
-import PageTitle from '../components/Typography/PageTitle'
+import PageTitle from '../../../components/Typography/PageTitle'
 import { IoFilterSharp } from 'react-icons/io5';
-import response from '../utils/demo/tableData'
+import response from '../../../utils/demo/tableData'
 import { useSelector } from 'react-redux'
-import './../styles/studentManage.css';
-import Row from '../components/TableRow'
+import '../../../styles/studentManage.css';
+import Row from '../../../components/TableRow'
 
 import {
   TableBody,
@@ -84,7 +84,7 @@ function Dashboard() {
                 setClassFilter(e.target.value)
                 setAboutFilter()
               }
-              } className="mt-1">
+              } className="mt-5 mb-4">
               <option value={'All Classes'}>All Classes</option>
               <option value={1}>1</option>
               <option value={2}>2</option>

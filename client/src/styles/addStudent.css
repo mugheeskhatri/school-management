@@ -7,6 +7,10 @@
 .width {
     width: 48% !important;
 }
+.idCardModal{
+    margin-left: 3rem;
+    width: 32rem;
+}
 
 .idCard {
     width: 48% !important;

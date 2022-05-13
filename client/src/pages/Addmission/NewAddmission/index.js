@@ -1,24 +1,25 @@
 import React, { useState, useEffect } from 'react'
 import { Input, HelperText, Label, Select, Textarea } from '@windmill/react-ui'
-import PageTitle from '../../components/Typography/PageTitle'
+import PageTitle from '../../../components/Typography/PageTitle'
 import { Button } from '@windmill/react-ui';
-import signature from '../../assets/img/signature.PNG';
-import ProfileImage from '../../assets/img/profile.JPG'
-import '../../styles/studentManage.css'
-import '../../styles/addStudent.css'
+import signature from '../../../assets/img/signature.PNG';
+import ProfileImage from '../../../assets/img/profile.JPG'
+import '../../../styles/studentManage.css'
+import '../../../styles/addStudent.css'
 import axios from 'axios';
 import { useSelector } from 'react-redux';
 import { useParams } from 'react-router-dom';
-import studentDp from '../../assets/img/studentDp.png'
+import studentDp from '../../../assets/img/studentDp.png'
 import printHtmlToPDF from "print-html-to-pdf";
 import { toast } from 'react-toastify';
 
-function ManageStudents() {
+function NewAddmission() {
     const [studentInfo, setStudentInfo] = useState(true)
     const params = useParams()
     const data = useSelector(state => state)
     const allStudents = [...data.registeredStudents, ...data.admittedStudents]
-    const currentDate = new Date();
+    const date = new Date();
+    const currentDate = `${date.getFullYear()} ${date.getDate()} ${date.getMonth()}`
     const [newAddmission, setNewAddmission] = useState(
         {
             studentName: '',
@@ -63,7 +64,7 @@ function ManageStudents() {
                 familyNumber: studentData[0]?.familyNumber,
                 image: studentData[0]?.image,
                 guardianName: studentData[0]?.guardianName,
-                addmissionDate: studentData[0]?.addmissionDate,
+                addmissionDate: currentDate,
                 address: studentData[0]?.address,
             }
         )
@@ -101,6 +102,7 @@ function ManageStudents() {
             addmissionDate: newAddmission?.addmissionDate,
             address: newAddmission?.address,
         }
+
         // axios.post('http://localhost:5000/api/Student', formData)
         //   .then(res => {
         //     console.log('res', res);
@@ -437,7 +439,7 @@ function ManageStudents() {
     )
 }
 
-export default ManageStudents;
+export default NewAddmission;
 
 
 

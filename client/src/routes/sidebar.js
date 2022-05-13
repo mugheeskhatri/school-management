@@ -37,6 +37,14 @@ const routes = [
         path: '/app/student/manage',
         name: 'Manage Admissions',
       },
+      {
+        path: '/app/student/manage-classes',
+        name: 'Manage Classes',
+      },
+      {
+        path: '/app/student/generate-family-number',
+        name: 'Generate Family Number',
+      },
     ],
   },
   {

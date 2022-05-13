@@ -4,8 +4,8 @@ const Dashboard = lazy(() => import('../pages/Dashboard'))
 const Forms = lazy(() => import('../pages/Forms'))
 const Page404 = lazy(() => import('../pages/404'))
 const NewStudent = lazy(() => import('../pages/newStudent'))
-const StudentManage = lazy(() => import('../pages/StudentManage'))
-const EditStudent = lazy(() => import('../pages/editStudent'))
+const ManageAddmission = lazy(() => import('../pages/Addmission/ManageAddmission'))
+const EditStudent = lazy(() => import('../pages/Addmission/EditStudent'))
 const newStaff = lazy(() => import('../pages/newStaff'))
 const RegisteredStudents = lazy(() => import('../pages/RegisteredStudents'))
 const category = lazy(() => import('../pages/Category'))
@@ -30,7 +30,9 @@ const Exams = lazy(() => import('../pages/academic/exams'))
 const SyllabusReport = lazy(() => import('../pages/academic/reports'))
 const AddUser = lazy(() => import('../pages/users/addUser'))
 const ManageUser = lazy(() => import('../pages/users/users'))
-const NewAddmission = lazy(() => import('../pages/newAddmission'))
+const NewAddmission = lazy(() => import('../pages/Addmission/NewAddmission'))
+const ManageClasses = lazy(() => import('../pages/Addmission/ManageClasses'))
+const GenerateFamilyNumber = lazy(() => import('../pages/Addmission/GenerateFamilyNumber'))
 
 
 /**
@@ -146,11 +148,11 @@ const routes = [
   },
   {
     path: '/student/manage',
-    component: StudentManage,
+    component: ManageAddmission,
   },
   {
     path: '/student/registered',
-    component:RegisteredStudents ,
+    component: RegisteredStudents,
   },
   {
     path: '/category',
@@ -175,6 +177,14 @@ const routes = [
   {
     path: '/student/add-new',
     component: NewAddmission,
+  },
+  {
+    path: '/student/manage-classes',
+    component: ManageClasses,
+  },
+  {
+    path: '/student/generate-family-number',
+    component: GenerateFamilyNumber,
   },
 ]
 

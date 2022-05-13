@@ -2,7 +2,9 @@ import React, { useState } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from '@windmill/react-ui'
 import { AiOutlineInfoCircle, AiOutlineEdit, AiOutlinePrinter } from 'react-icons/ai';
 import ProfileImage from '../../../src/assets/img/profile.JPG'
+import studentDp from '../../../src/assets/img/studentDp.png'
 import signature from '../../../src/assets/img/signature.PNG'
+import '../../styles/addStudent.css'
 import {
   TableCell,
   TableRow,
@@ -10,6 +12,7 @@ import {
   Badge,
 } from '@windmill/react-ui'
 import { useHistory } from 'react-router-dom';
+import printHtmlToPDF from "print-html-to-pdf";
 
 const Index = (props) => {
   const [isModalOpen, setIsModalOpen] = useState(false)
@@ -21,6 +24,25 @@ const Index = (props) => {
 
   function closeModal() {
     setIsModalOpen(false)
+  }
+  const printIDCard = async () => {
+
+    const node = document.getElementById("idCard");
+    const pdfOption = {
+      jsPDF: {
+        unit: 'px',
+        format: 'a4',
+      },
+      spin: false,
+      fileName: props.data?.grNumber,
+      margin: {
+        top: 4,
+        bottom: 4,
+
+      },
+    }
+    console.log(props.data?.grNumber);
+    await printHtmlToPDF.print(node, pdfOption);
   }
   return (
     <>
@@ -47,7 +69,7 @@ const Index = (props) => {
         </TableCell>
         <TableCell>
           <div style={{ display: 'flex', justifyContent: 'space-around', width: '80%' }}>
-            <div onClick={()=> history.push(`/app/student/edit/${props.data.grNumber}`)} className='icon-container'><acronym title="Edit info"><AiOutlineEdit size={18} /></acronym></div>
+            <div onClick={() => history.push(`/app/student/edit/${props.data.grNumber}`)} className='icon-container'><acronym title="Edit info"><AiOutlineEdit size={18} /></acronym></div>
             <div onClick={openModal} className='icon-container'><acronym title="Basic Info"><AiOutlineInfoCircle size={18} /></acronym></div>
           </div>
         </TableCell>
@@ -56,100 +78,102 @@ const Index = (props) => {
       {/* Modal */}
 
       <Modal isOpen={isModalOpen} onClose={closeModal}>
-        <ModalBody>
-          <div className='modal-id-card'>
-            <div className='profile-container'>
-              <img src={ProfileImage} />
-            </div>
-            <div className='id-card-header'>
-              <p>Pak Skills Improvement</p>
-            </div>
-            <div>
-              <div className='id-card-name-section'>
-                <p className='studentName'>
-                  {props.data.studentName}
-                </p>
-                <p className='fatherName'>
-                  s/o {props.data.fatherName}
-                </p>
+        <ModalBody className="m-auto">
+          <div className='idCardModal' id="idCard">
+            <div className='form-id-card'>
+              <div className='form-id-card-header'>
+                <p>Pak Skills Improvement</p>
               </div>
-            </div>
-            <div className='id-card-details'>
-
-              {/* gr and dob */}
-
-              <div className='gr-section'>
-                <div>
-                  <p className='heading'>
-                    GR No.
+              <div className='form-profile-container'>
+                <img src={studentDp} />
+              </div>
+              <div>
+                <div className='form-id-card-name-section'>
+                  <p className='form-studentName'>
+                    {props.data.studentName}
                   </p>
-                  <p className='value'>
-                    {props.data.grNumber}
-                  </p>
-                </div>
-                <div className='second-div'>
-                  <p className='heading'>
-                    Date Of Birth:
-                  </p>
-                  <p className='value'>
-                    {props.data.dob}
+                  <p className='form-fatherName'>
+                    {props.data.gender ? props.data.gender === 'Male' ? 's/o' : 'd/o' : ''} {props.data.fatherName}
                   </p>
                 </div>
               </div>
+              <div className='form-id-card-details'>
 
-              {/* gr and dob */}
+                {/* gr and dob */}
 
-              {/* gender and class */}
-              <div className='gender-section'>
-                <div>
-                  <p className='heading'>
-                    Gender:
-                  </p>
-                  <p className='value'>
-                    {props.data.gender}
-                  </p>
+                <div className='form-gr-section'>
+                  <div>
+                    <p className='form-heading'>
+                      GR No.
+                    </p>
+                    <p className='form-value'>
+                      {props.data.grNumber}
+                    </p>
+                  </div>
+                  <div className='form-second-div'>
+                    <p className='form-heading'>
+                      Date Of Birth:
+                    </p>
+                    <p className='form-value'>
+                      {props.data.dateofbirth}
+                    </p>
+                  </div>
                 </div>
-                <div className='second-div'>
-                  <p className='heading'>
-                    Class
-                  </p>
-                  <p className='value'>
-                    {props.data.studentClass}
-                  </p>
+
+                {/* gr and dob */}
+
+                {/* gender and class */}
+                <div className='form-gender-section'>
+                  <div>
+                    <p className='form-heading'>
+                      Gender:
+                    </p>
+                    <p className='form-value'>
+                      {props.data.gender}
+                    </p>
+                  </div>
+                  <div className='form-second-div'>
+                    <p className='form-heading'>
+                      Class
+                    </p>
+                    <p className='form-value'>
+                      {props.data.studentClass}
+                    </p>
+                  </div>
                 </div>
-              </div>
 
-              {/* gender and class */}
+                {/* gender and class */}
 
-              {/* extra */}
+                {/* extra */}
 
-              <div className='extra-section'>
-                <div>
-                  <p>+9234569067</p>
-                  <p>info@psi.com</p>
-                  <p className='website-link'>www.pakskillsimrovement.com</p>
+                <div className='form-extra-section'>
+                  <div>
+                    <p>+9234569067</p>
+                    <p>info@psi.com</p>
+                    <p className='form-website-link'>www.pakskills.com</p>
+                  </div>
                 </div>
+
+                {/* extra */}
+                {/* extra */}
+
+                <div className='form-signature-section'>
+                  <img src={signature} />
+                  <p>Signature</p>
+                </div>
+
+                {/* extra */}
+
               </div>
-
-              {/* extra */}
-              {/* extra */}
-
-              <div className='signature-section'>
-                <img src={signature} />
-                <p>Signature</p>
-              </div>
-
-              {/* extra */}
-
             </div>
           </div>
         </ModalBody>
         <ModalFooter>
           <div className='modal-footer'>
             <div>
-              <Button>
-                <span>Print</span>
-                <span style={{marginLeft:15}}><AiOutlinePrinter size={20} /></span>
+              <Button onClick={printIDCard}>
+                <span>Download ID Card</span>
+                <span style={{ marginLeft: 15 }}><AiOutlinePrinter size={20} /></span>
               </Button>
             </div>
           </div>
