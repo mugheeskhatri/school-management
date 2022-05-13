@@ -13,6 +13,7 @@ const AddInquiry = lazy(() => import('../pages/Inquiry/addInquiry'))
 const InquiryReports = lazy(() => import('../pages/Inquiry/reports'))
 const FeeDeposit = lazy(() => import('../pages/fee Management/feeDeposit'))
 const FeeDepositByfamily = lazy(() => import('../pages/fee Management/feeDepositByFamily'))
+const FeeRecieveables = lazy(() => import('../pages/fee Management/feeRecieveables'))
 const FeeReports = lazy(() => import('../pages/fee Management/reports'))
 const TakeAttendance = lazy(() => import('../pages/attendance/takeAttendance'))
 const StudentLeave = lazy(() => import('../pages/attendance/shortLeave'))
@@ -70,6 +71,10 @@ const routes = [
   {
     path: '/deposit-by-family',
     component: FeeDepositByfamily,
+  },
+  {
+    path: '/fee-recieveables',
+    component: FeeRecieveables,
   },
   {
     path: '/fee-report',

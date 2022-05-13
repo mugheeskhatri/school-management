@@ -45,11 +45,15 @@ const routes = [
     routes: [
       {
         path: '/app/fee-deposit-voucher',
-        name: 'Fee Deposit',
+        name: 'Fee Collect Voucher',
       },
       {
         path: '/app/deposit-by-family',
-        name: 'Fee Deposit by family',
+        name: 'Fee Collect by family',
+      },
+      {
+        path: '/app/fee-recieveables',
+        name: 'Fee Recieveables',
       },
       {
         path: '/app/fee-report',
