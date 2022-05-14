@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { Input, HelperText, Label, Select, Textarea } from '@windmill/react-ui'
+import { Input, HelperText, Label, Select, Textarea , Button } from '@windmill/react-ui'
 import '../../../styles/feeVoucher.css'
 import { useSelector } from 'react-redux';
+import { useHistory } from 'react-router-dom';
 
 const Index = () => {
     const state = useSelector(state => state)
@@ -9,7 +10,8 @@ const Index = () => {
     const student = state.admittedStudents.filter(student => student.grNumber == studentGrNumber)
     const date = new Date();
     const currentDate = `${date.getFullYear()} ${date.getDate()} ${date.getMonth()}`
-   
+    const history = useHistory()
+
     const [studentName, setStudentName] = useState()
     const [fatherName, setFatherName] = useState()
     const [studentClass, setStudentClass] = useState()
@@ -21,9 +23,23 @@ const Index = () => {
         setStudentClass(student[0]?.studentClass)
     }
 
+
     return (
         <div>
-            <div style={{display:'flex',justifyContent:'space-around',flexWrap:'wrap'}}>
+        <div className='fee-voucher-header'>
+        <div className='fee-voucher-heading-section'>
+        <p className='fee-voucher-heading'>Fee Deposit Voucher</p>
+        </div>
+        <div className='fee-voucher-btn-section'>
+            <Button onClick={()=> history.push('/app/deposit-by-family')}>
+                Collect By Family Number
+            </Button>
+            <Button>
+                Download Blank Form
+            </Button>
+        </div>
+        </div>
+            <div className='fee-voucher-form-section'>
             <div style={{width:'48%'}}>
             <Label className='my-3'>
                 <span className='my-3 bolder'>GR Number:</span>
@@ -129,8 +145,13 @@ const Index = () => {
 
             </div>
            
-            
             </div>
+            <div style={{display:'flex',justifyContent:'end',width:'100%'}}>
+               <div className='save-btn-section'>
+               <Button>Save</Button>
+               <Button>Save and Print</Button>
+               </div>
+           </div>
         </div>
     );
 }

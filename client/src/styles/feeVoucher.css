@@ -1,5 +1,42 @@
 .fee-voucher-header{
-    width: 100%;
     height: 100px;
-    border-bottom:1px solid gray;
+    display: flex;
+    flex-wrap: wrap;
+ box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;;
+}
+.fee-voucher-heading-section{
+    height: 100px;
+    display: flex;
+    align-items: center;
+    width: 50%;
+}
+
+.fee-voucher-heading{
+    font-size: 24px;
+    color: black;
+    margin: 10px;
+}
+
+.fee-voucher-btn-section{
+    width: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-end;
+    padding-bottom: 10px;
+}
+
+.fee-voucher-form-section{
+display: flex;
+justify-content: space-around;
+flex-wrap: wrap;
+box-shadow: rgba(0, 0, 0, 0.05) 0px 1px 2px 0px;;
+padding: 20px 10px 20px 10px;
+}
+
+.save-btn-section{
+    margin-top: 20px;
+    width: 30%;
+    display: flex;
+    padding-right: 10px;
+    justify-content: space-around;
 }
