@@ -13,7 +13,6 @@
 
 .fee-voucher-heading{
     font-size: 24px;
-    color: black;
     margin: 10px;
 }
 
@@ -35,8 +34,28 @@ padding: 20px 10px 20px 10px;
 
 .save-btn-section{
     margin-top: 20px;
+    margin-bottom: 20px;
     width: 30%;
     display: flex;
     padding-right: 10px;
     justify-content: space-around;
 }
+
+.total-amount{
+    width: 100%;
+    display: flex;
+    justify-content: end;
+}
+
+.amount-section{
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    padding-top: 10px;
+}
+
+/* .amount-section p{
+    font-weight: bold;
+    color: black;
+} */
