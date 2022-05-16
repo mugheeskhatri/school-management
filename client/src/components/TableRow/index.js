@@ -1,9 +1,10 @@
 import React, { useState } from 'react';
 import { Modal, ModalHeader, ModalBody, ModalFooter, Button } from '@windmill/react-ui'
 import { AiOutlineInfoCircle, AiOutlineEdit, AiOutlinePrinter } from 'react-icons/ai';
-import ProfileImage from '../../../src/assets/img/profile.JPG'
-import studentDp from '../../../src/assets/img/studentDp.png'
-import signature from '../../../src/assets/img/signature.PNG'
+import { BsInfoCircle } from 'react-icons/bs';
+import ProfileImage from '../../../src/assets/img/profile.JPG';
+import studentDp from '../../../src/assets/img/studentDp.png';
+import signature from '../../../src/assets/img/signature.PNG';
 import '../../styles/addStudent.css'
 import {
   TableCell,
@@ -70,7 +71,7 @@ const Index = (props) => {
         <TableCell>
           <div style={{ display: 'flex', justifyContent: 'space-around', width: '80%' }}>
             <div onClick={() => history.push(`/app/student/edit/${props.data.grNumber}`)} className='icon-container'><acronym title="Edit info"><AiOutlineEdit size={18} /></acronym></div>
-            <div onClick={openModal} className='icon-container'><acronym title="Basic Info"><AiOutlineInfoCircle size={18} /></acronym></div>
+            <div onClick={openModal} className='icon-container'><acronym title="Basic Info"><BsInfoCircle size={18} /></acronym></div>
           </div>
         </TableCell>
       </TableRow>

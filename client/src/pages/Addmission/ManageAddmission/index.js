@@ -112,7 +112,7 @@ function Dashboard() {
               <TableCell><span style={{ width: '70%', display: 'flex', justifyContent: 'center' }}>GR Number</span></TableCell>
               <TableCell><span style={{ width: '70%', display: 'flex', justifyContent: 'center' }}>Class</span></TableCell>
               <TableCell><span style={{ width: '70%', display: 'flex', justifyContent: 'center' }}>Status</span></TableCell>
-              <TableCell></TableCell>
+              <TableCell><span style={{ width: '70%', display: 'flex', justifyContent: 'center' }}>Action</span></TableCell>
             </tr>
           </TableHeader>
           <TableBody>
