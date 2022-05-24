@@ -6,25 +6,40 @@ import { useHistory } from 'react-router-dom';
 
 const Index = () => {
     const state = useSelector(state => state)
+    const monthsArray = ['January','February','March','April','May','June','July','August','September','October','November','December']
     const [studentGrNumber, setStudentGrNumber] = useState()
     const student = state.admittedStudents.filter(student => student.grNumber == studentGrNumber)
     const date = new Date();
     const currentDate = `${date.getFullYear()} ${date.getDate()} ${date.getMonth()}`
     const history = useHistory()
-
     const [studentName, setStudentName] = useState()
     const [fatherName, setFatherName] = useState()
     const [studentClass, setStudentClass] = useState()
-    const [feeMonth, setFeeMonth] = useState()
+    const [feeMonth, setFeeMonth] = useState(monthsArray[date.getMonth()])
+    const [feeYear , setFeeYear] = useState(date.getFullYear())
+    const [feeAmount , setFeeAmount] = useState()
     var months = []
-    const [feeDate, setFeeDate] = useState(currentDate)
-    console.log(studentName, fatherName, studentClass)
     const setStudentByGr = () => {
         setStudentName(student[0]?.studentName)
         setFatherName(student[0]?.fatherName)
         setStudentClass(student[0]?.studentClass)
+        setFeeAmount(student[0]?.fee)
     }
 
+    const saveFee = ()=>{
+        console.log(feeMonth)
+        console.log(feeYear)
+        console.log(currentDate)
+        console.log(feeAmount)
+        state.fee.twentyTwo.May = {
+            status:true,
+            submitDate:currentDate,
+            feeAmount:feeAmount
+        }
+        console.log(state.fee.twentyTwo.May)
+    }
+
+    
 
     const addMonth = () => {
         var list = document.getElementById('dropdown-list')
@@ -40,10 +55,10 @@ const Index = () => {
                     <p className='my-6 text-l font-semibold text-gray-600 dark:text-gray-300 fee-voucher-heading'>Fee Deposit Voucher</p>
                 </div>
                 <div className='fee-voucher-btn-section'>
-                    <Button onClick={() => history.push('/app/deposit-by-family')}>
+                    <Button style={{boxShadow: '0 6px 15px 0 rgba(0, 0, 0, 0.2)'}} onClick={() => history.push('/app/deposit-by-family')}>
                         Collect By Family Number
                     </Button>
-                    <Button>
+                    <Button style={{boxShadow: '0 6px 15px 0 rgba(0, 0, 0, 0.2)'}}>
                         Download Blank Form
                     </Button>
                 </div>
@@ -54,7 +69,7 @@ const Index = () => {
                         <span className='my-3 bolder'>GR Number:</span>
                         <Input type="text"
                             placeholder="Enter GR Number"
-                            name="studentName"
+                            name="geNumber"
                             maxlength="27"
                             value={studentGrNumber}
                             onChange={(e) => {
@@ -67,7 +82,7 @@ const Index = () => {
                     <Label className='my-3'>
                         <span className='my-3 bolder'>Student Name:</span>
                         <Input type="text"
-                            placeholder="Enter GR Number"
+                            placeholder="Enter Student Number"
                             name="studentName"
                             maxlength="27"
                             value={studentName}
@@ -81,7 +96,7 @@ const Index = () => {
                         <span className='my-3 bolder'>Father Name:</span>
                         <Input type="text"
                             placeholder="Enter GR Number"
-                            name="studentName"
+                            name="fatherName"
                             maxlength="27"
                             value={fatherName}
                             onChange={(e) => {
@@ -119,11 +134,10 @@ const Index = () => {
                             <Label className="mt-4">
                                 <span>Select Month:</span>
                                 <Select
-                                    name="class"
+                                    name="feeMonth"
                                     value={feeMonth}
                                     onChange={(e) => {
-                                        months.push(...months, { name: e.target.value })
-                                        console.log(months)
+                                        months.push(...months, { name: e.target.value})
                                     }} className="mt-1">
                                     <option value={'January'}>January</option>
                                     <option value={'February'}>February</option>
@@ -144,9 +158,9 @@ const Index = () => {
                             <Label className="mt-4">
                                 <span>Select year:</span>
                                 <Select
-                                    name="class"
-                                    value={studentClass}
-                                    onChange={(e) => setStudentClass(e.target.value)} className="mt-1">
+                                    name="feeYear"
+                                    value={feeYear}
+                                    onChange={(e) => setFeeYear(e.target.value)} className="mt-1">
                                     <option value={2015}>2015</option>
                                     <option value={2016}>2016</option>
                                     <option value={2017}>2017</option>
@@ -167,13 +181,13 @@ const Index = () => {
                     </div>
                 </div>
                 <div style={{ width: '100%', padding: 10 }}>
-                    <Button onClick={() => addMonth()} style={{ width: '100%', marginTop: 10 }}>Add Month</Button>
+                    <Button onClick={() => addMonth()} style={{ width: '100%', marginTop: 10 ,boxShadow: '0 6px 15px 0 rgba(0, 0, 0, 0.2)' }}>Add Month</Button>
                 </div>
                 <div style={{ width: '100%' }}>
                     <Label className="mt-4">
                         <span>Other Charges:</span>
                         <Select
-                            name="class"
+                            name="otherCharges"
                             value={studentClass}
                             onChange={(e) => setStudentClass(e.target.value)} className="mt-1">
                             <option value={1}>Annual Charges</option>
@@ -189,14 +203,14 @@ const Index = () => {
                             <h1 className="mt-3 text-l font-semibold text-gray-600 dark:text-gray-300">Total Amount</h1>
                         </div>
                         <div>
-                            <p className="mt-3 text-l font-semibold text-gray-600 dark:text-gray-300">Rs.12000</p>
+                            <p className="mt-3 text-l font-semibold text-gray-600 dark:text-gray-300">Rs.{feeAmount}</p>
                         </div>
                     </div>
                 </div>
             </div>
             <div style={{ display: 'flex', justifyContent: 'end', width: '100%' }}>
                 <div className='save-btn-section'>
-                    <Button>Save</Button>
+                    <Button onClick={()=> saveFee()}>Save</Button>
                     <Button>Save and Print</Button>
                 </div>
             </div>

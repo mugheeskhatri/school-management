@@ -29,6 +29,8 @@ function Dashboard() {
   const [filterDiv, setFilterDiv] = useState(false)
   const [classFilter, setClassFilter] = useState('All Classes')
   const [showData , setShowData] = useState()
+  const [studentGender , setStudentGender] = useState('All Students')
+
 
   // pagination setup
   const resultsPerPage = 10
@@ -54,25 +56,76 @@ function Dashboard() {
     user ?
       setName(user.userName) : setName("")
   }, [name])
-    const setAboutFilter = ()=>{
-        if(classFilter === 'All Classes'){
+
+
+    const setAboutGenderFilter = ()=>{
+        if(studentGender === 'All Students'){
+          if(classFilter === 'All Classes'){
             setShowData(state.admittedStudents)
+              }else{
+                  const classFilterInGender = state.admittedStudents.filter((student)=> student.studentClass == classFilter);
+                  setShowData(classFilterInGender)
+                }
         }else{
-          const filtered = state.admittedStudents.filter((student)=> student.studentClass == classFilter);
-          setShowData(filtered)
-          console.log('classFilter',classFilter)
-          console.log(filtered)
+          if(classFilter === 'All Classes'){
+            const filtered = state.admittedStudents.filter((student)=> student.gender == studentGender);
+            setShowData(filtered)
+          }else{
+            const classFilterInGender = state.admittedStudents.filter((student)=> student.studentClass == classFilter);
+            const genderFilter = classFilterInGender.filter(student => student.gender === studentGender)      
+            setShowData(genderFilter)
+                  console.log(showData)
+                  console.log(studentGender)
+          }
+        }
+        console.log(studentGender)
+      }
+
+
+    const setAboutClassFilter = ()=>{
+        if(classFilter === 'All Classes'){
+          if(studentGender === 'All Students'){
+            setShowData(state.admittedStudents)
+              }else{
+                  const genderFilterInClass = state.admittedStudents.filter((student)=> student.gender == studentGender);
+                  setShowData(genderFilterInClass)
+                  console.log(genderFilterInClass)
+                }
+        }else{
+          if(studentGender === 'All Students'){
+            const filtered = state.admittedStudents.filter((student)=> student.studentClass == classFilter);
+            setShowData(filtered)
+          }else{
+            const genderFilterInClass = state.admittedStudents.filter((student)=> student.gender == studentGender);
+            const filteredClass = genderFilterInClass.filter(student => student.studentClass === classFilter)      
+            setShowData(filteredClass)
+            console.log(filteredClass)
+          }
         }
       }
+
+
   return (
     <>
       <div style={{ display: 'flex', alignItems: 'center' }}>
         <div style={{ width: '70%' }}>
-          <PageTitle>{name}</PageTitle>
+          <PageTitle className='text-gray-600 dark:text-gray-400'>Fee Recieveables</PageTitle>
         </div>
         <div className='filter-button-div'>
-          <div style={{ fontWeight: 'bold', color: 'rgb(81, 80, 80)' }}>
-            Select Class:
+          <div>
+          <Select
+              name="class"
+              value={studentGender}
+              onChange={(e) => {
+                setStudentGender(e.target.value)
+                setAboutGenderFilter()
+              }
+              } className="mt-1">
+              <option value={'All Students'}>All Students</option>
+              <option value={'Male'}>Male</option>
+              <option value={'Female'}>Female</option>
+             
+            </Select>
           </div>
           <div>
             <Select
@@ -80,7 +133,7 @@ function Dashboard() {
               value={classFilter}
               onChange={(e) => {
                 setClassFilter(e.target.value)
-                setAboutFilter()
+                setAboutClassFilter()
               }
               } className="mt-1">
               <option value={'All Classes'}>All Classes</option>

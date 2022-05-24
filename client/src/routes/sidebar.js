@@ -64,6 +64,10 @@ const routes = [
         name: 'Fee Recieveables',
       },
       {
+        path: '/app/student-fee-record',
+        name: 'Student Fee Record',
+      },
+      {
         path: '/app/fee-report',
         name: 'Reports',
       },
