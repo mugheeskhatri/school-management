@@ -1,4 +1,34 @@
 const main = {
+    inquiry:[
+        {
+            name:'Meet the principle',
+            date:'22 12 2022',
+            status:false,
+            active:true,
+            number:2001
+        },
+        {
+            name:'Meet the principle',
+            date:'22 12 2022',
+            status:false,
+            active:true,
+            number:2002
+        },
+        {
+            name:'Meet the principle',
+            date:'22 12 2022',
+            status:false,
+            active:true,
+            number:2003
+        },
+        {
+            name:'Meet the principle',
+            date:'22 12 2022',
+            status:false,
+            active:true,
+            number:2004
+        },
+    ],
     data: 'check',
     fee: {
         twentyTwo: {
